@@ -2,6 +2,7 @@ import z from "zod";
 import { config } from "dotenv";
 
 const configSchema = z.object({
+  SERVICE_NAME: z.literal("morf-api").default("morf-api"),
   ENVIRONMENT: z
     .union([z.literal("development"), z.literal("production")])
     .default("development"),

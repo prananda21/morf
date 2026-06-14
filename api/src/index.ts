@@ -11,6 +11,7 @@ import { showRoutes } from "hono/dev";
 import { CONFIG } from "./config.js";
 import { Scalar } from "@scalar/hono-api-reference";
 import type { MORF } from "../env.js";
+import { logger } from "./lib/logger/registry.js";
 
 const app = $(
   new OpenAPIHono()
@@ -49,8 +50,7 @@ const openApiDocument: OpenAPIObjectConfigure<MORF, "/docs"> = {
 app.doc31("/openapi", openApiDocument);
 
 const main = async () => {
-  console.log("Starting server...");
-  console.log(CONFIG.ENVIRONMENT);
+  logger.info("Starting server...");
 
   if (CONFIG.ENVIRONMENT == "development") {
     showRoutes(app, { verbose: true });
@@ -62,7 +62,7 @@ const main = async () => {
       port: 3000,
     },
     (info) => {
-      console.log(`Server is running on http://localhost:${info.port}`);
+      logger.info(`Server is running on http://localhost:${info.port}`);
     },
   );
 };
