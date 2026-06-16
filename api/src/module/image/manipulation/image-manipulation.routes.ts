@@ -21,7 +21,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/resize",
     tags: ["Image Manipulation"],
     summary: "Resizes an image to specified dimensions.",
-    description: "Resizes an image to the given width and height. The fit param controls how the image is scaled: cover (crop to fill), contain (letterbox), fill (stretch), inside, or outside.",
+    description:
+      "Resizes an image to the given width and height. The fit param controls how the image is scaled: cover (crop to fill), contain (letterbox), fill (stretch), inside, or outside.",
     request: {
       query: IMAGE_MANIPULATION_REQUESTS.RESIZE.pick({
         width: true,
@@ -45,7 +46,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/compress",
     tags: ["Image Manipulation"],
     summary: "Compresses an image to reduce file size.",
-    description: "Reduces image file size using lossy compression. Response headers include original size, compressed size, and compression ratio.",
+    description:
+      "Reduces image file size using lossy compression. Response headers include original size, compressed size, and compression ratio.",
     request: {
       query: IMAGE_MANIPULATION_REQUESTS.COMPRESS.pick({ quality: true }),
       body: {
@@ -80,7 +82,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/crop",
     tags: ["Image Manipulation"],
     summary: "Crops an image to a specified region.",
-    description: "Crops the image to the rectangular region defined by left, top, width, and height. Returns 400 if the requested region exceeds the image dimensions.",
+    description:
+      "Crops the image to the rectangular region defined by left, top, width, and height. Returns 400 if the requested region exceeds the image dimensions.",
     request: {
       query: IMAGE_MANIPULATION_REQUESTS.CROP.pick({
         left: true,
@@ -105,7 +108,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/rotate",
     tags: ["Image Manipulation"],
     summary: "Rotates an image by a specified degree.",
-    description: "Rotates an image by the given degrees. Use 90, 180, or 270 for lossless rotation, or any value for free rotation with a configurable background fill color.",
+    description:
+      "Rotates an image by the given degrees. Use 90, 180, or 270 for lossless rotation, or any value for free rotation with a configurable background fill color.",
     request: {
       query: IMAGE_MANIPULATION_REQUESTS.ROTATE.pick({
         degrees: true,
@@ -128,7 +132,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/grayscale",
     tags: ["Image Manipulation"],
     summary: "Converts an image to grayscale.",
-    description: "Removes all color information from the image and returns a grayscale version in the same format.",
+    description:
+      "Removes all color information from the image and returns a grayscale version in the same format.",
     request: {
       body: {
         content: {
@@ -147,7 +152,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/flip",
     tags: ["Image Manipulation"],
     summary: "Flips an image horizontally or vertically.",
-    description: "Mirrors the image along the specified axis. Use axis=h for horizontal (left-right) or axis=v for vertical (top-bottom).",
+    description:
+      "Mirrors the image along the specified axis. Use axis=h for horizontal (left-right) or axis=v for vertical (top-bottom).",
     request: {
       query: IMAGE_MANIPULATION_REQUESTS.FLIP.pick({ axis: true }),
       body: {
@@ -167,7 +173,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/watermark",
     tags: ["Image Manipulation"],
     summary: "Adds a text watermark to an image.",
-    description: "Overlays a text watermark on the image at the specified position. Supports opacity, font size, and hex color customization.",
+    description:
+      "Overlays a text watermark on the image at the specified position. Supports opacity, font size, and hex color customization.",
     request: {
       query: IMAGE_MANIPULATION_REQUESTS.WATERMARK.pick({
         text: true,
@@ -193,7 +200,8 @@ export const IMAGE_MANIPULATION_ROUTES = {
     path: "/image/metadata",
     tags: ["Image Manipulation"],
     summary: "Returns metadata and EXIF data from an image.",
-    description: "Reads image properties (format, dimensions, color space, DPI) and EXIF data (camera make/model, GPS, exposure) without modifying the file. exif will be null if no EXIF data is present.",
+    description:
+      "Reads image properties (format, dimensions, color space, DPI) and EXIF data (camera make/model, GPS, exposure) without modifying the file. exif will be null if no EXIF data is present.",
     request: {
       body: {
         content: {
